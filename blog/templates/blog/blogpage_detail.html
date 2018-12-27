@@ -1,0 +1,22 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+   <h1 class="text-center border-bottom border-secondary py-2">{{ blogpage.title }}</h1>
+   <p class="text-light"><span class="text-success"><strong>Post Date:</strong></span> {{ blogpage.date }}</p>
+   <h3 class="text-light"><span class="text-success"><strong>Author:</strong></span> {{ blogpage.author }}</h3>
+   <p class="text-light"><span class="text-success"><strong>Description:</strong></span></p>
+   <p class="text-light">{{ blogpage.description }}</p>
+
+   <h3 class="text-center border-bottom border-secondary pb-2 mb-0">Comments:</h3>
+   {% if comments %}
+   {% for comment in comments %}
+   <p class="border-bottom border-secondary py-2 mb-0">{{ comment.author }} ({{ comment.date }}): - <span class="text-light">{{ comment.description }}</span></p>
+   {% endfor %}
+   {% else %}
+   <p class="text-center">There dont appear to be any comments for this blog page.</p>
+   {% endif %}
+   {% if user.is_authenticated %}
+   <p><a href="{% url 'comment' blogpage.id %}">Click here to leave a comment</a></p>
+   {% endif %}
+
+{% endblock %}

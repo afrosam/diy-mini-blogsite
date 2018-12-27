@@ -1,0 +1,19 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+   <h1 class="text-center border-bottom border-secondary py-2">Blog List</h1>
+   <div class="row">
+   {% if blogpage_list %}
+   <ul>
+     {% for blog in blogpage_list %}
+       <li>
+         <a href="{% url 'blog-detail' blog.id %}">{{ blog.title }}</a> ({{blog.author}})
+       </li>
+     {% endfor %}
+   </ul>
+   {% else %}
+     <p>There are no blogs stored yet.</p>
+   {% endif %}
+ </div>
+
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  {% if blogger_item_list %}
+  <h1 class="text-center border-bottom border-secondary py-2">{{blogger.first_name}} {{blogger.last_name}}'s blog posts</h1>
+  <div class="table-responsive">
+  <table class="table table-hover table-striped table-dark my-2 shadow">
+    <tr class="bg-success">
+      <th scope="row">#</th>
+      <th>Blog Title:</th>
+      <th>Date Published:</th>
+    </tr>
+    {% for blogitem in blogger_item_list %}
+      <tr>
+        <td scope="row">{{forloop.counter}}</td>
+        <td><a href="{% url 'blog-detail' blogitem.id %}">{{blogitem.title}}</a></td>
+        <td>{{blogitem.date}}</td>
+      </tr>
+    {% endfor %}
+  </table>
+  </div>
+  {% else %}
+    <p>There are no blogs stored yet.</p>
+  {% endif %}
+
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1 class="text-center border-bottom border-secondary py-2">Comment:</h1>
+  <form id="comment_form" action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Submit">
+  </form>
+{% endblock %}

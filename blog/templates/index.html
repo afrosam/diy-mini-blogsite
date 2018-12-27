@@ -1,0 +1,10 @@
+{% extends 'base_generic.html' %}
+{% block content %}
+  <h1 class="text-center border-bottom border-secondary py-2">Mini Blog Homepage</h1>
+  <p>Welcome to my mini blog website!</p>
+  <ul>
+    <li><strong>Blogs:</strong> {{ num_blogs }}</li>
+    <li><strong>Authors:</strong> {{ num_bloggers }}</li>
+  </ul>
+  <p>You have visited this page {{ num_visits }}{% if num_visits == 1 %} time{% else %} times{% endif %}.</p>
+{% endblock %}

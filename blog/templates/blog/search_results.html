@@ -1,0 +1,14 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1 class="text-center border-bottom border-secondary py-2">Search Results for: {{search}}</h1>
+  {% if results_list %}
+      <ul>
+      {% for element in results_list %}
+          <li><a href="{% url 'blog-detail' element.id %}">{{ element }}</a></li>
+      {% endfor %}
+      </ul>
+  {% else %}
+    <p>Sorry there appears to be no results that match your search.</p>
+  {% endif %}
+{% endblock %}
