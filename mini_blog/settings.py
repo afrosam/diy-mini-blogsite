@@ -38,7 +38,7 @@ CSRF_COOKIE_SECURE = True
 
 X_FRAME_OPTIONS = 'DENY'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['quiet-savannah-42491.herokuapp.com']
 
 
 # Application definition
